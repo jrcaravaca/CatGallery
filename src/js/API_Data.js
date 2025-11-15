@@ -1,0 +1,2 @@
+export const API_KEY = "live_oUvHI3MEhVAvoueh1vO7reBuYvQYq6PEqhQqhjFlN9kRR82YHyRTy25DynAiLK6C"; 
+export const URL = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${API_KEY}`; 
