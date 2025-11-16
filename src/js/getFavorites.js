@@ -26,6 +26,7 @@ export function getFavorites() {
         btn_img.classList = 'max-w-[30px]'
         btn_img.src = "./icons/corazon_lleno.png"; 
 
+        // listener del enlace de favoritas
         like_btn.addEventListener('click', (e) => {
             e.preventDefault(); 
             if (img.dataset.like === "true") {
@@ -33,6 +34,7 @@ export function getFavorites() {
                 img.dataset.like = 'false' 
                 urlsFavoritas.splice(i);
                 localStorage.setItem('favoritos',urlsFavoritas)
+                gallery.removeChild(img_container)
                 getFavorites()
             }
         })

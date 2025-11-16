@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CatGallery</title>
   </head>
-  <body class="h-full flex flex-col items-center bg-[#F8F9FE]">
-    <div id="app" class="m-4 flex flex-col">    
+  <body class="h-dvh flex flex-col items-center justify-between bg-[#F8F9FE]">
+    <div id="app" class="h-full m-4 flex flex-col">    
       <header class="mb-4">
         <h1 class="text-5xl text-center">The Cat Gallery</h1>
         <nav class="text-center mt-2 flex gap-4 items-center justify-center">
-          <a href="index.html">Home</a>
-          <a href="" id="fav">Favoritos</a>
+          <button class="cursor-pointer">Home</button>
+          <button id="fav" class="cursor-pointer">Favoritas</button>
         </nav>
 
       </header>
@@ -22,7 +22,7 @@
         <button id="more_img" class="cursor-pointer border p-1">Cargar más</button>
       </main>
 
-      <footer class="xl:fixed bottom-0 left-0 w-full text-center py-4">
+      <footer class="bottom-0 left-0 w-full text-center py-4">
         <p>Coded before sunrise, powered by coffee, by @jrcaravaca</p>
       </footer>
     </div>
