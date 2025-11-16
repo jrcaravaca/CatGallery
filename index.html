@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CatGallery</title>
   </head>
-  <body class="h-full flex flex-col m-w-[600px] items-center">
+  <body class="h-full flex flex-col items-center">
     <div id="app" class="m-4 flex flex-col">    
       <header>
-        <h1 class="xl:text-5xl">The Cat Gallery</h1>
+        <h1 class="xl:text-5xl text-center">The Cat Gallery</h1>
         <nav class="text-center mt-2 flex gap-4 items-center justify-center">
           <a href="index.html">Home</a>
           <a href="">Favoritos</a>
@@ -18,8 +18,8 @@
       </header>
 
       <main class="flex flex-col items-center justify-between">
-        <div id="gallery" class="min-h-[600px] grid grid-cols-5"></div>
-        <button class="cursor-pointer border p-1">Cargar más</button>
+        <div id="gallery" class="min-h-[600px] grid grid-cols-5  gap-2 "></div>
+        <button id="more_img" class="cursor-pointer border p-1">Cargar más</button>
       </main>
 
       <footer class="fixed bottom-0 left-0 w-full text-center py-4">
