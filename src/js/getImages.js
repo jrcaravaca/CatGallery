@@ -2,7 +2,8 @@ import { Spinner } from "spin.js";
 import "spin.js/spin.css";
 import { opts } from "./utils/spinner_opts";
 
-let urls_favoritas = []
+let urls_favoritas = localStorage.getItem('favoritos'); 
+urls_favoritas = urls_favoritas.split(',')
 
 export function getImages(URL){
     const gallery = document.getElementById('gallery'); 
@@ -35,7 +36,7 @@ export function getImages(URL){
                         } else {
                             localStorage.setItem('favoritos', urls_favoritas); 
                         }
-                        console.log(urls_favoritas); 
+                        
                     } else {
                         btn_img.src = "./icons/corazon.png"; 
                         img.dataset.like = 'false' 
