@@ -34,4 +34,12 @@ export function getImages(URL){
                 gallery.appendChild(img_container);
             }
         })
+        .catch(() => {
+            const errorTxt = document.createElement('p'); 
+            gallery.classList.remove('lg:grid', 'lg:grid-cols-5')
+            errorTxt.textContent = 'Ha ocurrido un error, no se han podido cargar las imágenes'; 
+            errorTxt.classList = 'text-center text-2xl'; 
+            gallery.appendChild(errorTxt); 
+            spinner.stop()
+        })
 }
