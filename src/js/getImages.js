@@ -1,6 +1,8 @@
 import { Spinner } from "spin.js";
 import "spin.js/spin.css";
-import { opts } from "./utils/spinner";
+import { opts } from "./utils/spinner_opts";
+
+let urls_favoritas = []
 
 export function getImages(URL){
     const gallery = document.getElementById('gallery'); 
@@ -22,10 +24,29 @@ export function getImages(URL){
                 btn_img.classList = 'max-w-[30px]'
                 btn_img.src = "./icons/corazon.png"; 
 
+                like_btn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    if (img.dataset.like === "false") {
+                        btn_img.src = "./icons/corazon_lleno.png"; 
+                        img.dataset.like = 'true' 
+                        urls_favoritas.push(data[i].url); 
+                        if (!localStorage.getItem('favoritos')) {
+                            localStorage.setItem('favoritos', urls_favoritas); 
+                        } else {
+                            localStorage.setItem('favoritos', urls_favoritas); 
+                        }
+                        console.log(urls_favoritas); 
+                    } else {
+                        btn_img.src = "./icons/corazon.png"; 
+                        img.dataset.like = 'false' 
+                    }
+                })
+
                 // imágenes
                 const img = document.createElement('img');
                 img.classList = 'aspect-square max-w-[250px] mb-1 border rounded'
                 img.setAttribute('src',data[i].url)
+                img.dataset.like = 'false'
 
 
                 img_container.appendChild(img); 
