@@ -3,14 +3,19 @@ import "spin.js/spin.css";
 import { opts } from "./utils/spinner_opts";
 
 export function getFavorites() {
-    let favoritas = localStorage.getItem('favoritos')
-    favoritas = favoritas.split(',')
-    console.log(favoritas)
+    let urlsFavoritas;
+    if (localStorage.getItem('favoritos')) {
+        urlsFavoritas = localStorage.getItem('favoritos').split(','); 
+    } else {
+    //Aqui poner mensaje para cuando no hay favoritos
+        console.log('Aún no hay favoritas')
+        return
+    }
 
     const gallery = document.getElementById('gallery'); 
     gallery.innerText = '';
 
-    for (let i = 0; i < favoritas.length; i++) {
+    for (let i = 0; i < urlsFavoritas.length; i++) {
         // contenedor principal de imágenes
         const img_container = document.createElement('div'); 
         img_container.classList = 'flex flex-col items-center justify-center'
@@ -23,26 +28,18 @@ export function getFavorites() {
 
         like_btn.addEventListener('click', (e) => {
             e.preventDefault(); 
-            if (img.dataset.like === "false") {
-                btn_img.src = "./icons/corazon_lleno.png"; 
-                img.dataset.like = 'true' 
-                urls_favoritas.push(data[i].url); 
-                if (!localStorage.getItem('favoritos')) {
-                    localStorage.setItem('favoritos', urls_favoritas); 
-                } else {
-                    localStorage.setItem('favoritos', urls_favoritas); 
-                }
-                console.log(urls_favoritas); 
-            } else {
+            if (img.dataset.like === "true") {
                 btn_img.src = "./icons/corazon.png"; 
                 img.dataset.like = 'false' 
+                urlsFavoritas.splice(i);
+                localStorage.setItem('favoritos',urlsFavoritas)
+                getFavorites()
             }
         })
-
         // imágenes
         const img = document.createElement('img');
         img.classList = 'aspect-square max-w-[250px] mb-1 border rounded'
-        img.setAttribute('src',favoritas[i])
+        img.setAttribute('src',urlsFavoritas[i])
         img.dataset.like = 'true'
 
 

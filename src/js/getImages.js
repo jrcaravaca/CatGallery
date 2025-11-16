@@ -2,8 +2,14 @@ import { Spinner } from "spin.js";
 import "spin.js/spin.css";
 import { opts } from "./utils/spinner_opts";
 
-let urls_favoritas = localStorage.getItem('favoritos'); 
-urls_favoritas = urls_favoritas.split(',')
+// Si hay cogerlo, si no hay crearlo
+let urls_favoritas; 
+
+if (localStorage.getItem('favoritos')) {
+    urls_favoritas = localStorage.getItem('favoritos').split(','); 
+} else {
+    urls_favoritas = []; 
+}
 
 export function getImages(URL){
     const gallery = document.getElementById('gallery'); 
@@ -32,6 +38,7 @@ export function getImages(URL){
                         img.dataset.like = 'true' 
                         urls_favoritas.push(data[i].url); 
                         if (!localStorage.getItem('favoritos')) {
+                            // pendiente de que se guarde con los nuevos datos
                             localStorage.setItem('favoritos', urls_favoritas); 
                         } else {
                             localStorage.setItem('favoritos', urls_favoritas); 
@@ -40,6 +47,7 @@ export function getImages(URL){
                     } else {
                         btn_img.src = "./icons/corazon.png"; 
                         img.dataset.like = 'false' 
+                        // añadir que cuando se quite el like se quite de localStorage
                     }
                 })
 
