@@ -18,7 +18,6 @@ export function getFavorites() {
     for (let i = 0; i < urlsFavoritas.length; i++) {
         // contenedor principal de imágenes
         const img_container = document.createElement('div'); 
-        const main = document.querySelector('main'); 
         const cargarBtn = document.getElementById('more_img')
         img_container.classList = 'flex flex-col items-center justify-center'
         // botón de like
@@ -51,6 +50,6 @@ export function getFavorites() {
         like_btn.appendChild(btn_img); 
         img_container.appendChild(like_btn); 
         gallery.appendChild(img_container);
-        main.removeChild(cargarBtn)
+        cargarBtn.style.display = 'none'; 
     }
 }

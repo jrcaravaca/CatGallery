@@ -7,7 +7,6 @@ const more_btn = document.getElementById('more_img');
 const fav = document.getElementById('fav'); 
 const hombeBtn = document.getElementById('home'); 
 const moreImg = document.getElementById('more_img'); 
-const main = document.querySelector('main')
 
 getImages(URL)
 
@@ -24,5 +23,5 @@ fav.addEventListener('click', (e) => {
 hombeBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
     getImages(URL)
-    main.appendChild(moreImg); 
+    moreImg.style.display = 'block'
 })
