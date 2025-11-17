@@ -5,6 +5,9 @@ import { getFavorites } from './js/getFavorites';
 
 const more_btn = document.getElementById('more_img'); 
 const fav = document.getElementById('fav'); 
+const hombeBtn = document.getElementById('home'); 
+const moreImg = document.getElementById('more_img'); 
+const main = document.querySelector('main')
 
 getImages(URL)
 
@@ -16,4 +19,10 @@ more_btn.addEventListener('click', (e) => {
 fav.addEventListener('click', (e) => {
     e.preventDefault()
     getFavorites()
+})
+
+hombeBtn.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    getImages(URL)
+    main.appendChild(moreImg); 
 })
