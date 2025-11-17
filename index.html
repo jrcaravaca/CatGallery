@@ -7,21 +7,23 @@
     <title>CatGallery</title>
   </head>
   <body class="h-dvh flex flex-col items-center justify-between bg-[#F8F9FE]">
-    <div id="app" class="h-full m-4 flex flex-col">    
-      <header class="mb-4">
+    <div id="app" class="h-dvh m-4 flex flex-col justify-between">
+      <!-- HEADER -->
+      <header>
         <h1 class="text-5xl text-center">The Cat Gallery</h1>
-        <nav class="text-center mt-2 flex gap-4 items-center justify-center">
+        <nav class="text-center mt-4 flex gap-4 items-center justify-center">
           <button id="home" class="cursor-pointer">Home</button>
           <button id="fav" class="cursor-pointer">Favoritas</button>
         </nav>
-
       </header>
 
+      <!-- MAIN -->
       <main class="flex flex-col items-center justify-between">
         <div id="gallery"></div>
         <button id="more_img" class="cursor-pointer border p-1">Cargar más</button>
       </main>
-
+      
+      <!-- FOOTER -->
       <footer class="bottom-0 left-0 w-full text-center py-4">
         <p>Coded before sunrise, powered by coffee, by @jrcaravaca</p>
       </footer>

@@ -8,7 +8,7 @@ export function getImages(URL){
     // -- Constantes DOM
     const gallery = document.getElementById('gallery'); 
     // ## En este punto se añaden las clases a la galería
-    gallery.classList = "min-h-[600px] relative flex flex-col lg:grid lg:grid-cols-5 items-center justify-center gap-2 ";
+    gallery.classList = "min-h-[600px] relative flex flex-col mb-3 xl:grid xl:grid-cols-5 items-center justify-center gap-2 ";
     gallery.innerText = '';
 
     // -- Si hay datos guardados en localStorage, se cogen si no se crea un array vacio
