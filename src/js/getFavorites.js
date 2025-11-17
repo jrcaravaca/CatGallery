@@ -10,16 +10,7 @@ export function getFavorites() {
 
     if (localStorage.getItem('favoritos')) {
         urlsFavoritas = localStorage.getItem('favoritos').split(','); 
-    } else {
-        const text = document.createElement('p'); 
-        gallery.classList.remove('lg:grid', 'lg:grid-cols-5')
-        text.innerText = 'Aún no has marcado imágenes como favoritas'
-        gallery.appendChild(text); 
-    }
-
-
-
-    for (let i = 0; i < urlsFavoritas.length; i++) {
+        for (let i = 0; i < urlsFavoritas.length; i++) {
         // contenedor principal de imágenes
         const img_container = document.createElement('div'); 
         const cargarBtn = document.getElementById('more_img')
@@ -57,5 +48,11 @@ export function getFavorites() {
         gallery.appendChild(img_container);
         cargarBtn.style.display = 'none'; 
         localStorage.setItem('favoritos', urlsFavoritas)
+        }
+    } else {
+        const text = document.createElement('p'); 
+        gallery.classList.remove('lg:grid', 'lg:grid-cols-5')
+        text.innerText = 'Aún no has marcado imágenes como favoritas'
+        gallery.appendChild(text); 
     }
 }
