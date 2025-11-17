@@ -4,16 +4,19 @@ import { opts } from "./utils/spinner_opts";
 
 export function getFavorites() {
     let urlsFavoritas;
+    const gallery = document.getElementById('gallery'); 
+    gallery.innerText = '';
+
     if (localStorage.getItem('favoritos')) {
         urlsFavoritas = localStorage.getItem('favoritos').split(','); 
     } else {
-    //Aqui poner mensaje para cuando no hay favoritos
-        console.log('Aún no hay favoritas')
-        return
+        const text = document.createElement('p'); 
+        gallery.classList.remove('lg:grid', 'lg:grid-cols-5')
+        text.innerText = 'Aún no has marcado imágenes como favoritas'
+        gallery.appendChild(text); 
     }
 
-    const gallery = document.getElementById('gallery'); 
-    gallery.innerText = '';
+
 
     for (let i = 0; i < urlsFavoritas.length; i++) {
         // contenedor principal de imágenes

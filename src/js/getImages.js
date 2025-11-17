@@ -13,6 +13,7 @@ if (localStorage.getItem('favoritos')) {
 
 export function getImages(URL){
     const gallery = document.getElementById('gallery'); 
+    gallery.classList = "min-h-[600px] relative flex flex-col lg:grid lg:grid-cols-5 items-center justify-center gap-2 ";
     gallery.innerText = '';
 
     const spinner = new Spinner(opts).spin(gallery);
