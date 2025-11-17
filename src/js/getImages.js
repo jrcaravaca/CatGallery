@@ -58,7 +58,7 @@ export function getImages(URL){
                         // -- Si está marcada, se quita de favoritos
                         btn_img.src = "./icons/corazon.png"; 
                         img.dataset.like = 'false' 
-                        let index = urls_favoritas.findIndex(data[i].url); 
+                        let index = urls_favoritas.findIndex((element) => element === data[i].url) 
                         urls_favoritas.splice(index); 
                         localStorage.setItem('favoritos', urls_favoritas); 
                         // ** añadir que cuando se quite el like se quite de localStorage
@@ -72,7 +72,7 @@ export function getImages(URL){
                 img.dataset.like = 'false'
                 // -- Si la imagen esta en el array de favoritos, ya aparece marcada y con el icono coloreado
                 if (urls_favoritas.includes(data[i].url)) {
-                        img.dataset.like === 'true'; 
+                        img.dataset.like = 'true'; 
                         btn_img.src = "./icons/corazon_lleno.png"
                     }
 
