@@ -7,6 +7,7 @@ export function getFavorites() {
     const gallery = document.getElementById('gallery'); 
     gallery.innerText = '';
 
+
     if (localStorage.getItem('favoritos')) {
         urlsFavoritas = localStorage.getItem('favoritos').split(','); 
     } else {
@@ -42,6 +43,7 @@ export function getFavorites() {
                 getFavorites()
             }
         })
+
         // imágenes
         const img = document.createElement('img');
         img.classList = 'aspect-square max-w-[250px] mb-1 border rounded'
@@ -54,5 +56,6 @@ export function getFavorites() {
         img_container.appendChild(like_btn); 
         gallery.appendChild(img_container);
         cargarBtn.style.display = 'none'; 
+        localStorage.setItem('favoritos', urlsFavoritas)
     }
 }

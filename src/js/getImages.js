@@ -2,19 +2,20 @@ import { Spinner } from "spin.js";
 import "spin.js/spin.css";
 import { opts } from "./utils/spinner_opts";
 
-// Si hay cogerlo, si no hay crearlo
-let urls_favoritas; 
-
-if (localStorage.getItem('favoritos')) {
-    urls_favoritas = localStorage.getItem('favoritos').split(','); 
-} else {
-    urls_favoritas = []; 
-}
 
 export function getImages(URL){
     const gallery = document.getElementById('gallery'); 
     gallery.classList = "min-h-[600px] relative flex flex-col lg:grid lg:grid-cols-5 items-center justify-center gap-2 ";
     gallery.innerText = '';
+
+    // Si hay cogerlo, si no hay crearlo
+    let urls_favoritas; 
+
+    if (localStorage.getItem('favoritos')) {
+        urls_favoritas = localStorage.getItem('favoritos').split(','); 
+    } else {
+        urls_favoritas = []; 
+    }
 
     const spinner = new Spinner(opts).spin(gallery);
     fetch(URL)
@@ -34,6 +35,8 @@ export function getImages(URL){
 
                 like_btn.addEventListener('click', (e) => {
                     e.preventDefault(); 
+
+
                     if (img.dataset.like === "false") {
                         btn_img.src = "./icons/corazon_lleno.png"; 
                         img.dataset.like = 'true' 
@@ -57,6 +60,10 @@ export function getImages(URL){
                 img.classList = 'aspect-square max-w-[250px] mb-1 border rounded'
                 img.setAttribute('src',data[i].url)
                 img.dataset.like = 'false'
+                if (urls_favoritas.includes(data[i].url)) {
+                        img.dataset.like === 'true'; 
+                        btn_img.src = "./icons/corazon_lleno.png"
+                    }
 
 
                 img_container.appendChild(img); 
